@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Marquee } from '@/components/ui/marquee'
+import { VisitorStats } from '@/components/ui/visitor-stats'
 import { ArrowRight, Sparkles, Code2 } from 'lucide-react'
 
 export function HeroSection() {
@@ -12,7 +13,7 @@ export function HeroSection() {
       {/* Hero Main Content */}
       <div className="mx-auto max-w-7xl px-4 w-full flex-1 flex items-center py-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-          
+
           {/* Left Column: Headline & Bio */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 border-2 border-fg bg-secondary px-3 py-1 font-bold text-sm shadow-brutal animate-slide-up">
@@ -48,6 +49,11 @@ export function HeroSection() {
                 </Button>
               </Link>
             </div>
+
+            {/* Visitor Stats */}
+            <div className="animate-slide-up" style={{ animationDelay: '0.7s' }}>
+              <VisitorStats />
+            </div>
           </div>
 
           {/* Right Column: Hero Image with Neo-Brutalism Framing */}
@@ -55,7 +61,7 @@ export function HeroSection() {
             <div className="relative w-full max-w-sm sm:max-w-md">
               {/* Background offset card layer */}
               <div className="absolute inset-0 bg-primary border-4 border-fg translate-x-3 translate-y-3 shadow-brutal-lg animate-pulse-subtle"></div>
-              
+
               {/* Main Photo Card */}
               <div className="relative border-4 border-fg bg-surface p-2 sm:p-3 shadow-brutal hover-lift overflow-hidden group transition-all duration-500 hover:shadow-brutal-lg hover:-rotate-1">
                 <Image

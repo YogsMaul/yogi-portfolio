@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { SectionWrapper } from '@/components/layout/section-wrapper'
 import { Button } from '@/components/ui/button'
-import { VisitorStats } from '@/components/ui/visitor-stats'
 import { Mail, ArrowRight } from 'lucide-react'
 
 export function CTASection() {
@@ -34,11 +33,6 @@ export function CTASection() {
                 <ArrowRight size={20} />
               </Button>
             </Link>
-          </div>
-
-          {/* Visitor Stats */}
-          <div className="mt-10 pt-8 border-t-2 border-on-primary/20">
-            <VisitorStats />
           </div>
         </div>
       </div>
