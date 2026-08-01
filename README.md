@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portofolio — Achmad Yogi Maulana
 
-## Getting Started
+Neo-brutalism portfolio: **Frontend & Mobile Developer** (React, Next.js, Flutter, Kotlin).
 
-First, run the development server:
+**Live:** [yogi-maulana.vercel.app](https://yogi-maulana.vercel.app)
+
+## Stack
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind CSS 4
+- Space Grotesk + Geist Mono
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm.cmd run dev    # http://localhost:3000
+npm.cmd run build
+npm.cmd run start
+npm.cmd run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Windows PowerShell: pakai `npm.cmd` jika execution policy memblokir `npm.ps1`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struktur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/           # routes: /, /about, /projects, /projects/[slug], /contact
+  components/
+    ui/          # button, card, badge, marquee, …
+    layout/      # navbar, footer, section-wrapper
+    sections/    # hero, about-preview, project-grid, skills, cta
+  data/          # projects, skills, socials
+  types/
+public/          # CV, logo, foto, screenshots Narva
+```
 
-## Learn More
+Konten project di `src/data/projects.ts` — tambah item array, detail page auto dari slug.
 
-To learn more about Next.js, take a look at the following resources:
+## Design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Border tebal, shadow offset (bukan blur), aksen sky + yellow. Token di `src/app/globals.css`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Catatan aset
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- CV: `public/CV_ATS_Achmad_Yogi_Maulana.pdf`
+- Backup pre-compress (lokal, di-gitignore): `public/_bak_images/`
