@@ -1,47 +1,68 @@
-# Portofolio — Achmad Yogi Maulana
+# 🚀 Achmad Yogi Maulana — Mobile Developer Portfolio
 
-Neo-brutalism portfolio: **Frontend & Mobile Developer** (React, Next.js, Flutter, Kotlin).
+Website portofolio interaktif berbasis **Next.js 16**, **React 19**, **Tailwind CSS v4**, dan **TypeScript**. Menampilkan karya aplikasi mobile & web dengan gaya visual **Neo-Brutalism**, fitur **Interactive Live Simulator**, serta navigasi yang responsif.
 
-**Live:** [yogi-maulana.vercel.app](https://yogi-maulana.vercel.app)
+---
 
-## Stack
+## 📱 Proyek Unggulan
 
-- Next.js 16 (App Router) + React 19 + TypeScript
-- Tailwind CSS 4
-- Space Grotesk + Geist Mono
+| Proyek | Deskripsi | Tech Stack | Live Demo |
+| :--- | :--- | :--- | :--- |
+| **SiParkGo** | Sistem Manajemen Parkir & Thermal POS (Kolaborasi Pemda Babel & Bank Sumsel Babel) | Flutter, Dart, BLoC, Bluetooth ESC/POS, Hive AES, QRIS | [Simulator](/projects/siparkgo-parking-system/demo) |
+| **FuelIn Sync** | Sistem pemantauan harga BBM & transaksi dengan enkripsi Ed25519 | Flutter, Dart, Dio, Ed25519 Crypto | [Simulator](/projects/fuelin-sync-system/demo) |
+| **MB AI Assistant** | Asisten AI pintar dengan chat streaming real-time, BLoC pattern & Hive local storage | Flutter, Dart, BLoC, WebSocket, Hive Encrypted | [Simulator](/projects/mb-ai-assistant/demo) |
+| **Dashboard Etalase** | CMS etalase produk interaktif dengan fitur Drag-and-Drop | React, Next.js, TypeScript, dnd-kit | [Simulator](/projects/dashboard-etalase-narva/demo) |
+| **BSB Mobile UI** | Eksplorasi UI native Android perbankan modern 100% Jetpack Compose | Kotlin, Jetpack Compose, Material 3, Hilt | [Simulator](/projects/bsb-mobile-banking/demo) |
+| **UMKM Chat** | Dashboard WhatsApp Bot AI & Knowledge Base RAG | React, Vite, WebSocket, RAG, Ollama | [Simulator](/projects/umkm-chat-app/demo) |
+| **Project Tiket** | Platform ticketing event digital dengan checkout & QR Code | Next.js, TypeScript, Tailwind CSS, Zustand | [Simulator](/projects/project-tiket-support/demo) |
+| **Dashboard Tiket Admin** | Backoffice & CMS pengelola event, pesanan, dan laporan analitik | Next.js, TypeScript, Shadcn/ui, REST API | [Simulator](/projects/dashboard-tiket-admin/demo) |
 
-## Scripts
+---
+
+## 🛠️ Stack Teknologi
+
+- **Framework:** Next.js 16 (App Router), React 19
+- **Bahasa:** TypeScript
+- **Styling:** Tailwind CSS v4, Class Variance Authority (CVA), Clsx
+- **Komponen UI:** Lucide Icons, Custom Neo-Brutalism Design System
+- **State & Utils:** Custom Hooks, Local Storage Theme Management
+
+---
+
+## 📦 Menjalankan Proyek Lokal
 
 ```bash
-npm.cmd run dev    # http://localhost:3000
-npm.cmd run build
-npm.cmd run start
-npm.cmd run lint
+# Clone repository
+git clone https://github.com/YogsMaul/yogi-portfolio.git
+
+# Masuk ke direktori
+cd yogi-portfolio
+
+# Install dependencies
+npm install
+
+# Jalankan server pengembangan
+npm run dev
 ```
 
-> Windows PowerShell: pakai `npm.cmd` jika execution policy memblokir `npm.ps1`.
+Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
 
-## Struktur
+---
 
+## 📄 Hak Cipta & Lisensi
+
+```text
+Copyright (c) 2026 Achmad Yogi Maulana. All rights reserved.
+
+Source code and assets in this repository are available for viewing and reference only.
+No part of this software or project assets (including UI designs, project data, and screenshots)
+may be copied, modified, redistributed, or used for commercial/personal applications
+without explicit written permission from the author.
 ```
-src/
-  app/           # routes: /, /about, /projects, /projects/[slug], /contact
-  components/
-    ui/          # button, card, badge, marquee, …
-    layout/      # navbar, footer, section-wrapper
-    sections/    # hero, about-preview, project-grid, skills, cta
-  data/          # projects, skills, socials
-  types/
-public/          # CV, logo, foto, screenshots Narva
-```
 
-Konten project di `src/data/projects.ts` — tambah item array, detail page auto dari slug.
+Lihat file [LICENSE](./LICENSE) untuk ketentuan lengkap.
 
-## Design
+---
 
-Border tebal, shadow offset (bukan blur), aksen sky + yellow. Token di `src/app/globals.css`.
-
-## Catatan aset
-
-- CV: `public/CV_ATS_Achmad_Yogi_Maulana.pdf`
-- Backup pre-compress (lokal, di-gitignore): `public/_bak_images/`
+**Dikembangkan oleh [Achmad Yogi Maulana](https://github.com/YogsMaul)**  
+*Palembang, Indonesia*
