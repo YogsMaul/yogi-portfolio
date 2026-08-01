@@ -49,11 +49,6 @@ export function HeroSection() {
                 </Button>
               </Link>
             </div>
-
-            {/* Visitor Stats */}
-            <div className="animate-slide-up" style={{ animationDelay: '0.7s' }}>
-              <VisitorStats />
-            </div>
           </div>
 
           {/* Right Column: Hero Image with Neo-Brutalism Framing */}
@@ -84,6 +79,11 @@ export function HeroSection() {
                 <Code2 size={16} className="text-primary" />
                 <span>Flutter • Kotlin • Compose</span>
               </div>
+            </div>
+
+            {/* Visitor Stats Under Photo */}
+            <div className="w-full mt-6 flex justify-center animate-slide-up" style={{ animationDelay: '0.7s' }}>
+              <VisitorStats />
             </div>
           </div>
 
