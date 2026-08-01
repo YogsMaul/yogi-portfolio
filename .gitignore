@@ -43,3 +43,8 @@ next-env.d.ts
 # local image backups (pre-compress originals)
 /public/_bak_images/
 /public/narva_dashboard/_bak/
+
+# agent & plan docs
+AGENTS.md
+CLAUDE.md
+portfolio-neobrutalism-plan.md
