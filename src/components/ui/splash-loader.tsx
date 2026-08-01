@@ -106,13 +106,13 @@ export function SplashLoader() {
 
       {/* Center Neo-Brutalism Badge */}
       <div
-        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-100001 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none transform ${
+        className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-100001 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none transform w-[90vw] max-w-md ${
           isSplitting ? 'scale-125 opacity-0 rotate-3' : 'scale-100 opacity-100 rotate-0'
         }`}
       >
-        <div className="border-4 border-fg bg-secondary text-fg font-bold px-8 py-4 text-2xl md:text-3xl shadow-brutal-lg flex items-center gap-3 relative z-50">
-          <Image src="/logo_yogi.png" alt="Logo Yogi" width={48} height={48} className="block" />
-          <span className="text-2xl font-extrabold tracking-wider text-fg">ACHMAD YOGI MAULANA</span>
+        <div className="border-4 border-fg bg-secondary text-fg font-bold px-4 sm:px-8 py-3 sm:py-4 shadow-brutal-lg flex items-center justify-center gap-2.5 sm:gap-3 relative z-50 rounded-xl">
+          <Image src="/logo_yogi.png" alt="Logo Yogi" width={40} height={40} className="block shrink-0 sm:w-[48px] sm:h-[48px]" />
+          <span className="text-sm sm:text-2xl font-extrabold tracking-wider text-fg whitespace-nowrap">ACHMAD YOGI MAULANA</span>
         </div>
       </div>
     </div>
