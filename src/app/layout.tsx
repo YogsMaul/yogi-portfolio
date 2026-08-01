@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yogi-maulana.vercel.app'),
+  metadataBase: new URL('https://yogimaul-portfolio.vercel.app'),
   title: {
     default: 'Achmad Yogi Maulana — Mobile Developer',
     template: '%s | Achmad Yogi Maulana',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: 'Achmad Yogi Maulana — Mobile Developer (Flutter & Kotlin)',
     description:
       'Portofolio Achmad Yogi Maulana — Mobile Developer spesialisasi Flutter & Kotlin. Berpengalaman membangun sistem parkir digital, QRIS payment, AI assistant, dan aplikasi Android native.',
-    url: 'https://yogi-maulana.vercel.app',
+    url: 'https://yogimaul-portfolio.vercel.app',
     siteName: 'Achmad Yogi Maulana — Portfolio',
     images: [
       {
