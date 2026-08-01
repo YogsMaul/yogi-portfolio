@@ -52,7 +52,7 @@ export function HeroSection() {
           </div>
 
           {/* Right Column: Hero Image with Neo-Brutalism Framing */}
-          <div className="lg:col-span-5 relative flex justify-center animate-slide-in-right">
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center animate-slide-in-right">
             <div className="relative w-full max-w-sm sm:max-w-md">
               {/* Background offset card layer */}
               <div className="absolute inset-0 bg-primary border-4 border-fg translate-x-3 translate-y-3 shadow-brutal-lg animate-pulse-subtle"></div>
