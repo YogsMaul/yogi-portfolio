@@ -54,6 +54,7 @@ export const projects: Project[] = [
       { label: 'Pengaturan', image: '/siparkgo/pengaturan.jpeg', route: '/settings' },
     ],
   },
+  /*
   {
     id: '2',
     slug: 'bsb-mobile-banking',
@@ -106,6 +107,7 @@ export const projects: Project[] = [
       { label: 'Pengaturan', image: '/BSBMobile/pengaturan.png', route: '/settings' },
     ],
   },
+  */
   {
     id: '3',
     slug: 'fuelin-sync-system',
