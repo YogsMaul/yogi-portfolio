@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { projects } from '@/data/projects'
 import Link from 'next/link'
-import { GitFork, ExternalLink, ArrowRight, Filter, Search } from 'lucide-react'
+import { GitFork, ExternalLink, ArrowRight, Filter, Search, SearchX, RotateCcw } from 'lucide-react'
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState<'all' | 'mobile' | 'web'>('all')
@@ -76,10 +76,17 @@ export default function ProjectsPage() {
       {filteredProjects.length === 0 ? (
         <Card className="bg-surface border-2 shadow-brutal p-8 text-center max-w-xl mx-auto my-12">
           <CardContent className="space-y-4 pt-6">
-            <div className="text-4xl">🔍</div>
+            <div className="flex justify-center">
+              <span className="inline-flex items-center justify-center w-16 h-16 border-2 border-fg bg-secondary shadow-brutal">
+                <SearchX size={32} />
+              </span>
+            </div>
             <h3 className="text-2xl font-bold">Proyek Tidak Ditemukan</h3>
             <p className="text-fg/70 font-semibold text-sm leading-relaxed">
-              Tidak ada proyek yang cocok dengan kata kunci pencarian &quot;{searchQuery}&quot;. Silakan coba dengan kata kunci lain.
+              Tidak ada proyek yang cocok dengan kata kunci pencarian &quot;{searchQuery}&quot;
+              {activeCategory !== 'all' && (
+                <> dalam kategori <span className="capitalize">{activeCategory}</span></>
+              )}. Coba kata kunci lain atau reset filternya.
             </p>
             <Button
               variant="primary"
@@ -87,8 +94,9 @@ export default function ProjectsPage() {
                 setSearchQuery('')
                 setActiveCategory('all')
               }}
-              className="mt-2 font-bold shadow-brutal hover-lift"
+              className="mt-2 font-bold shadow-brutal hover-lift gap-2"
             >
+              <RotateCcw size={18} />
               Reset Filter & Pencarian
             </Button>
           </CardContent>

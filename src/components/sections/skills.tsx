@@ -1,10 +1,52 @@
 'use client'
 
+import type { ComponentType } from 'react'
 import { SectionWrapper } from '@/components/layout/section-wrapper'
 import { Badge } from '@/components/ui/badge'
 import { skills } from '@/data/skills'
 import { Skill } from '@/types'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { Boxes } from 'lucide-react'
+import {
+  SiAndroidstudio,
+  SiDart,
+  SiFigma,
+  SiFirebase,
+  SiFlutter,
+  SiGit,
+  SiJavascript,
+  SiJetpackcompose,
+  SiKotlin,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si'
+import { VscVscode } from 'react-icons/vsc'
+
+type SkillIcon = ComponentType<{
+  size?: string | number
+  className?: string
+  'aria-hidden'?: boolean | 'true' | 'false'
+}>
+
+const skillIcons: Record<string, SkillIcon> = {
+  Flutter: SiFlutter,
+  Dart: SiDart,
+  Kotlin: SiKotlin,
+  'Jetpack Compose': SiJetpackcompose,
+  BLoC: Boxes,
+  'Android Studio': SiAndroidstudio,
+  'React.js': SiReact,
+  'Next.js': SiNextdotjs,
+  TypeScript: SiTypescript,
+  'Tailwind CSS': SiTailwindcss,
+  JavaScript: SiJavascript,
+  Git: SiGit,
+  'VS Code': VscVscode,
+  Figma: SiFigma,
+  Firebase: SiFirebase,
+}
 
 const categories: Record<Skill['category'], string> = {
   mobile: 'Mobile Development',
@@ -41,7 +83,9 @@ export function SkillsSection() {
                   <h3 className="text-2xl font-bold">{label}</h3>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  {categorySkills.map((skill, skillIndex) => (
+                  {categorySkills.map((skill, skillIndex) => {
+                    const Icon = skillIcons[skill.name] ?? Boxes
+                    return (
                     <Badge
                       key={skill.name}
                       variant="outline"
@@ -54,6 +98,7 @@ export function SkillsSection() {
                       title={`${skill.name} — Level ${skill.level} dari 5`}
                       aria-label={`${skill.name}, level ${skill.level} dari 5`}
                     >
+                      <Icon size={16} className="mr-2 shrink-0" aria-hidden="true" />
                       {skill.name}
                       <span className="ml-2 inline-flex items-center gap-1" aria-hidden="true">
                         {[1, 2, 3, 4, 5].map((dot) => (
@@ -64,7 +109,8 @@ export function SkillsSection() {
                         ))}
                       </span>
                     </Badge>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             )
