@@ -2,12 +2,15 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Marquee } from '@/components/ui/marquee'
 import { VisitorStats } from '@/components/ui/visitor-stats'
+import { Typewriter, RotatingRole } from '@/components/ui/typewriter'
 import { ArrowRight, Sparkles, Code2 } from 'lucide-react'
 
 export function HeroSection() {
+  const [nameDone, setNameDone] = useState(false)
   return (
     <div className="relative pattern-grid accent-block-lg flex flex-col justify-between min-h-[calc(100vh-75px)] pt-6 lg:pt-10">
       {/* Hero Main Content */}
@@ -24,8 +27,17 @@ export function HeroSection() {
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] animate-slide-up border-b-4 border-primary pb-4">
                 Hi, Saya{' '}
-                <span className="text-primary block mt-1">Achmad Yogi Maulana</span>
+                <Typewriter
+                  text="Achmad Yogi Maulana"
+                  startDelay={2900}
+                  className="text-primary block mt-1 min-h-[2.4em] sm:min-h-[1.2em]"
+                  onDone={() => setNameDone(true)}
+                />
               </h1>
+              <p className="font-mono text-base sm:text-lg font-bold text-fg/70 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <span className="text-primary">&gt;_</span>{' '}
+                <RotatingRole start={nameDone} />
+              </p>
               <p className="text-lg sm:text-xl text-fg/85 leading-relaxed animate-slide-up font-semibold" style={{ animationDelay: '0.2s' }}>
                 Mobile Developer yang fokus bikin aplikasi Flutter &amp; Kotlin — dari <strong>sistem parkir digital dengan QRIS &amp; printer thermal</strong> (kolaborasi Pemda &amp; Bank), <strong>fuel monitoring system</strong>, sampai <strong>AI assistant chatbot</strong>. Juga eksplorasi UI native Android dengan Jetpack Compose.
               </p>

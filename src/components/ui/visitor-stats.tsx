@@ -7,7 +7,11 @@ import { Button } from '@/components/ui/button'
 export function VisitorStats() {
   const [likes, setLikes] = useState<number>(0)
   const [visits, setVisits] = useState<number>(0)
-  const [hasLiked, setHasLiked] = useState<boolean>(false)
+  const [hasLiked, setHasLiked] = useState<boolean>(
+    () =>
+      typeof window !== 'undefined' &&
+      localStorage.getItem('porto_user_has_liked') === 'true'
+  )
   const [isLiking, setIsLiking] = useState<boolean>(false)
   const [isLoaded, setIsLoaded] = useState<boolean>(false)
 
@@ -40,11 +44,7 @@ export function VisitorStats() {
         .catch(() => {})
     }
 
-    // 3. Check if user already liked
-    const userLiked = localStorage.getItem('porto_user_has_liked')
-    if (userLiked === 'true') {
-      setHasLiked(true)
-    }
+    // 3. hasLiked sudah diinisialisasi dari localStorage via useState initializer
   }, [])
 
   const handleLike = useCallback(async () => {
