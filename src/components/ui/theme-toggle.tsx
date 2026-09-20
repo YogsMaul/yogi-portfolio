@@ -48,7 +48,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className="w-10 h-10 border-2 border-fg bg-surface hover:bg-secondary text-fg flex items-center justify-center shadow-brutal hover-lift transition-colors shrink-0 cursor-pointer rounded-md"
       title={theme === 'light' ? 'Aktifkan Mode Gelap' : 'Aktifkan Mode Terang'}
-      aria-label="Toggle theme"
+      aria-label={theme === 'light' ? 'Aktifkan Mode Gelap' : 'Aktifkan Mode Terang'}
     >
       {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
     </button>

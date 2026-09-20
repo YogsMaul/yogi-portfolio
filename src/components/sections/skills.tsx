@@ -30,7 +30,7 @@ export function SkillsSection() {
             return (
               <div 
                 key={key} 
-                className={`border-2 border-fg bg-surface shadow-lg p-8 hover-lift hover-glow rounded-lg transition-all duration-700 ${
+                className={`border-2 border-fg bg-surface shadow-brutal p-8 hover-lift hover-glow rounded-md transition-all duration-700 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ 
@@ -42,17 +42,27 @@ export function SkillsSection() {
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {categorySkills.map((skill, skillIndex) => (
-                    <Badge 
-                      key={skill.name} 
-                      variant="outline" 
+                    <Badge
+                      key={skill.name}
+                      variant="outline"
                       className={`bg-bg px-3 py-2 text-sm hover-bounce border-2 transition-all duration-500 ${
                         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
                       }`}
-                      style={{ 
-                        transitionDelay: `${index * 150 + skillIndex * 50}ms` 
+                      style={{
+                        transitionDelay: `${index * 150 + skillIndex * 50}ms`
                       }}
+                      title={`${skill.name} — Level ${skill.level} dari 5`}
+                      aria-label={`${skill.name}, level ${skill.level} dari 5`}
                     >
                       {skill.name}
+                      <span className="ml-2 inline-flex items-center gap-1" aria-hidden="true">
+                        {[1, 2, 3, 4, 5].map((dot) => (
+                          <span
+                            key={dot}
+                            className={`h-2 w-2 border border-fg ${dot <= skill.level ? 'bg-primary' : 'bg-bg'}`}
+                          />
+                        ))}
+                      </span>
                     </Badge>
                   ))}
                 </div>

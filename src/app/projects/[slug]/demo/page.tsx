@@ -104,6 +104,7 @@ export default function ProjectDemoPage({ params }: DemoPageProps) {
               type="button"
               onClick={() => setActiveIndex((prev) => (prev + 1) % screenshots.length)}
               title="Layar berikutnya"
+              aria-label="Muat layar berikutnya"
               className="hover:text-primary transition-colors shrink-0"
             >
               <RefreshCw size={12} />
@@ -121,6 +122,7 @@ export default function ProjectDemoPage({ params }: DemoPageProps) {
               type="button"
               onClick={() => setActiveIndex((prev) => (prev + 1) % screenshots.length)}
               title="Refresh Halaman"
+              aria-label="Refresh halaman"
               className="hover:text-primary transition-colors shrink-0"
             >
               <RefreshCw size={12} />

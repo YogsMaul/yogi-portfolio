@@ -70,6 +70,7 @@ function Toast({ message, type = 'info', duration = 4000, onClose }: ToastProps 
           setTimeout(onClose, 300)
         }}
         className="absolute top-3 right-3 text-fg/60 hover:text-fg transition-colors"
+        aria-label="Tutup notifikasi"
       >
         <X size={18} />
       </button>

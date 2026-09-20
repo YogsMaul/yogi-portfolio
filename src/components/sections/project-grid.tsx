@@ -52,14 +52,14 @@ export function ProjectGrid() {
                   </Link>
                   {project.link && (
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" size="sm" title="Live Demo" className="hover-bounce">
+                      <Button variant="outline" size="sm" title="Live Demo" aria-label={`Buka live demo ${project.title}`} className="hover-bounce">
                         <ExternalLink size={16} />
                       </Button>
                     </a>
                   )}
                   {project.github && (
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" size="sm" title="Source Code" className="hover-bounce">
+                      <Button variant="outline" size="sm" title="Source Code" aria-label={`Lihat source code ${project.title}`} className="hover-bounce">
                         <GitFork size={16} />
                       </Button>
                     </a>

@@ -74,7 +74,8 @@ export function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 border-2 border-fg bg-surface shadow-brutal font-bold flex items-center justify-center text-fg hover:bg-secondary transition-colors"
-            aria-label="Toggle menu"
+            aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

@@ -248,7 +248,7 @@ export default function ContactPage() {
                   type="button"
                   variant="secondary"
                   onClick={handleSendWhatsApp}
-                  className="font-bold py-3 text-base flex items-center justify-center gap-2 bg-[#25D366] text-white hover:bg-[#20bd5a] border-2 border-fg shadow-brutal hover-ripple"
+                  className="font-bold py-3 text-base flex items-center justify-center gap-2 bg-[#25D366] text-fg hover:bg-[#20bd5a] border-2 border-fg shadow-brutal hover-ripple"
                 >
                   <MessageSquare size={18} />
                   <span>Kirim via WhatsApp</span>

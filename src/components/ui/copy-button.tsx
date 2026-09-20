@@ -27,6 +27,7 @@ export function CopyButton({ text, label }: CopyButtonProps) {
       variant="outline"
       size="sm"
       onClick={handleCopy}
+      aria-label={copied ? 'Tersalin!' : (label ?? `Salin ${text}`)}
       className="gap-2 font-bold border-2 shadow-brutal hover-lift transition-all"
     >
       {copied ? (

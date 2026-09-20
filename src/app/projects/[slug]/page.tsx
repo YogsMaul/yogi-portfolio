@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ExternalLink, GitFork, CheckCircle2, Zap, Layers } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, GitFork, CheckCircle2, Zap, Layers } from 'lucide-react'
 import type { Metadata } from 'next'
 
 interface ProjectPageProps {
@@ -36,11 +36,15 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const { slug } = await params
-  const project = projects.find((p) => p.slug === slug)
+  const projectIndex = projects.findIndex((p) => p.slug === slug)
+  const project = projectIndex >= 0 ? projects[projectIndex] : undefined
 
   if (!project) {
     notFound()
   }
+
+  const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : undefined
+  const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : undefined
 
   return (
     <SectionWrapper className="py-12">
@@ -219,6 +223,28 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </Card>
         </div>
       </div>
+
+      {/* Prev / Next navigation */}
+      <nav aria-label="Navigasi proyek" className="mt-12 flex flex-col sm:flex-row gap-4 justify-between">
+        {prevProject ? (
+          <Link href={`/projects/${prevProject.slug}`} className="flex-1">
+            <Button variant="outline" size="md" className="w-full gap-2 font-bold border-2 hover-lift">
+              <ArrowLeft size={18} />
+              <span className="truncate">{prevProject.title}</span>
+            </Button>
+          </Link>
+        ) : (
+          <span className="flex-1 hidden sm:block" />
+        )}
+        {nextProject && (
+          <Link href={`/projects/${nextProject.slug}`} className="flex-1">
+            <Button variant="outline" size="md" className="w-full gap-2 font-bold border-2 hover-lift">
+              <span className="truncate">{nextProject.title}</span>
+              <ArrowRight size={18} />
+            </Button>
+          </Link>
+        )}
+      </nav>
     </SectionWrapper>
   )
 }
