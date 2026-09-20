@@ -23,8 +23,8 @@ export function ProjectGrid() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.filter((project) => project.featured).map((project, index) => (
             <Card key={project.id} className="flex flex-col h-full bg-surface border-2 animate-slide-up hover-lift hover-glow group shadow-brutal" style={{ animationDelay: `${index * 0.1}s` }}>
               <CardHeader className="border-b-2 pb-4">
                 <Link href={`/projects/${project.slug}`}>

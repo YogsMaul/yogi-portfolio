@@ -25,7 +25,7 @@ export function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
   )
 }
 
-function Toast({ id, message, type = 'info', duration = 4000, onClose }: ToastProps & { onClose: () => void }) {
+function Toast({ message, type = 'info', duration = 4000, onClose }: ToastProps & { onClose: () => void }) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {

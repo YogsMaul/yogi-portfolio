@@ -178,52 +178,56 @@ export default function ContactPage() {
 
             <form onSubmit={handleSubmitEmail} className="space-y-4">
               <div>
-                <label className="block font-bold mb-2">Nama Lengkap *</label>
+                <label htmlFor="contact-name" className="block font-bold mb-2">Nama Lengkap *</label>
                 <input
                   type="text"
+                  id="contact-name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-white focus:shadow-brutal transition-all"
+                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-surface focus:shadow-brutal transition-all"
                   placeholder="Nama Anda"
                 />
               </div>
 
               <div>
-                <label className="block font-bold mb-2">Alamat Email *</label>
+                <label htmlFor="contact-email" className="block font-bold mb-2">Alamat Email *</label>
                 <input
                   type="email"
+                  id="contact-email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-white focus:shadow-brutal transition-all"
+                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-surface focus:shadow-brutal transition-all"
                   placeholder="email@domain.com"
                 />
               </div>
 
               <div>
-                <label className="block font-bold mb-2">Subjek Pesan</label>
+                <label htmlFor="contact-subject" className="block font-bold mb-2">Subjek Pesan</label>
                 <input
                   type="text"
+                  id="contact-subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-white focus:shadow-brutal transition-all"
+                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-surface focus:shadow-brutal transition-all"
                   placeholder="Proyek Web / Mobile App"
                 />
               </div>
 
               <div>
-                <label className="block font-bold mb-2">Isi Pesan *</label>
+                <label htmlFor="contact-message" className="block font-bold mb-2">Isi Pesan *</label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-white focus:shadow-brutal resize-none transition-all"
+                  className="w-full border-2 border-fg bg-bg px-4 py-3 font-medium focus:outline-none focus:bg-surface focus:shadow-brutal resize-none transition-all"
                   placeholder="Tuliskan detail proyek atau pertanyaan Anda di sini..."
                 />
               </div>

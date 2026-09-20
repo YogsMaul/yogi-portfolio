@@ -255,7 +255,7 @@ export default function ProjectDemoPage({ params }: DemoPageProps) {
               onMouseEnter={pauseAutoScroll}
               onMouseLeave={resumeAutoScroll}
             >
-              <div className="overflow-y-auto overflow-x-hidden relative scrollbar-custom">
+              <div className="overflow-y-auto overflow-x-hidden relative scrollbar-thin">
                 <div className="relative w-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
