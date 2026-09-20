@@ -8,6 +8,10 @@ interface TypewriterProps {
   startDelay?: number
   className?: string
   onDone?: () => void
+  loop?: boolean
+  holdDelay?: number
+  deleteSpeed?: number
+  pauseDelay?: number
 }
 
 export function Typewriter({
@@ -16,8 +20,13 @@ export function Typewriter({
   startDelay = 900,
   className,
   onDone,
+  loop = false,
+  holdDelay = 2600,
+  deleteSpeed = 40,
+  pauseDelay = 600,
 }: TypewriterProps) {
   const [count, setCount] = useState(0)
+  const [deleting, setDeleting] = useState(false)
   const doneRef = useRef(false)
   const onDoneRef = useRef(onDone)
 
@@ -28,34 +37,53 @@ export function Typewriter({
   const finished = count >= text.length
 
   useEffect(() => {
-    // Hormati reduced-motion: tampilkan teks penuh langsung
+    // Hormati reduced-motion: tampilkan teks penuh langsung, tanpa loop
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setCount(text.length)
+      if (!doneRef.current) {
+        doneRef.current = true
+        onDoneRef.current?.()
+      }
       return
     }
 
     let timer: ReturnType<typeof setTimeout> | undefined
 
-    if (count === 0) {
-      timer = setTimeout(() => setCount(1), startDelay)
-    } else if (count < text.length) {
-      timer = setTimeout(() => setCount((c) => c + 1), speed)
-    } else if (!doneRef.current) {
-      doneRef.current = true
-      onDoneRef.current?.()
+    if (!deleting) {
+      if (count === 0) {
+        // Putaran pertama pakai startDelay, putaran berikutnya pakai pauseDelay
+        timer = setTimeout(() => setCount(1), doneRef.current ? pauseDelay : startDelay)
+      } else if (count < text.length) {
+        timer = setTimeout(() => setCount((c) => c + 1), speed)
+      } else {
+        // Selesai mengetik: tandai done (picu RotatingRole sekali saja)
+        if (!doneRef.current) {
+          doneRef.current = true
+          onDoneRef.current?.()
+        }
+        // Mode loop: tahan teks penuh sejenak, lalu hapus huruf per huruf
+        if (loop) {
+          timer = setTimeout(() => setDeleting(true), holdDelay)
+        }
+      }
+    } else if (count > 0) {
+      timer = setTimeout(() => setCount((c) => c - 1), deleteSpeed)
+    } else {
+      // Sudah terhapus semua: jeda sebentar sebelum mengetik ulang
+      timer = setTimeout(() => setDeleting(false), pauseDelay)
     }
 
     return () => {
       if (timer) clearTimeout(timer)
     }
-  }, [count, text.length, speed, startDelay])
+  }, [count, deleting, text.length, speed, startDelay, loop, holdDelay, deleteSpeed, pauseDelay])
 
   return (
     <span className={className} aria-label={text}>
       <span aria-hidden="true">
         {text.slice(0, count)}
-        {!finished && <span className="typewriter-caret">▌</span>}
+        {(!finished || loop) && <span className="typewriter-caret">▌</span>}
       </span>
       <span className="sr-only">{text}</span>
     </span>

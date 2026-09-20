@@ -30,6 +30,7 @@ export function HeroSection() {
                 <Typewriter
                   text="Achmad Yogi Maulana"
                   startDelay={2900}
+                  loop
                   className="text-primary block mt-1 min-h-[2.4em] sm:min-h-[1.2em]"
                   onDone={() => setNameDone(true)}
                 />
